@@ -71,13 +71,31 @@
       <Button size="small">小型按钮</Button>
       <Button size="mini">超小按钮</Button>
 
+      <br >
+      <br >
+      <button-group>
+        <Button type="primary" icon="el-icon-arrow-left">上一页</Button>
+        <Button type="primary">下一页 <i class="el-icon-arrow-right"></i> </Button>
+      </button-group>
+
+      <button-group>
+        <Button type="primary" icon="el-icon-edit"></Button>
+        <Button type="primary" icon="el-icon-share"></Button>
+        <Button type="primary" icon="el-icon-delete"></Button>
+        <Button type="danger" icon="el-icon-delete"></Button>
+        <Button type="warning" icon="el-icon-delete"></Button>
+        <Button type="primary" icon="el-icon-delete"></Button>
+        <Button type="success" icon="el-icon-delete"></Button>
+        <Button type="info" icon="el-icon-delete"></Button>
+      </button-group>
   </div>
 </template>
 
 <script>
 import Button from '~/packages/button/src/button'
+import ButtonGroup from '~/packages/button/src/button-group'
 export default {
-  components: { Button }, // 子组件
+  components: { Button, ButtonGroup }, // 子组件
 
   computed: { }, // 计算属性
 

@@ -1,5 +1,6 @@
 @import './mixins/mixins.scss';
 @import './mixins/button';
+@import "mixins/utils";
 @include b(button) {
     display: inline-block;
     line-height: 1;
@@ -173,6 +174,39 @@
           color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
           border-color: transparent;
           background-color: transparent;
+        }
+    }
+}
+
+@include b(button-group){
+    @include utils-clearfix;
+    display: inline-block;
+    vertical-align: middle;
+    & + & {
+        margin-left: 10px;
+    }
+    & > .el-button{
+        float: left;
+        &:first-child{
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        &:last-child{
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        &:not(:first-child):not(:last-child){
+            border-radius: 0;  
+        }
+        &:first-child:last-child {
+            border-top-right-radius: $--button-border-radius;
+            border-bottom-right-radius: $--button-border-radius;
+            border-top-left-radius: $--button-border-radius;
+            border-bottom-left-radius: $--button-border-radius;    
+        }
+        &:not(:first-child){
+            margin-left: -1px;
+            border-left-color: rgba(255,255,255,.7);
         }
     }
 }
