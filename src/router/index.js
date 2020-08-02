@@ -7,6 +7,10 @@ export const constantRoutes = [
   {
     path: '/button',
     component: () => import('@/views/button')
+  },
+  {
+    path: '/row',
+    component: () => import('@/views/row')
   }
 ]
 const createRouter = () => new Router({

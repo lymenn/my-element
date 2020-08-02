@@ -11,6 +11,7 @@ $--color-warning: #E6A23C !default;
 $--color-danger: #F56C6C !default;
 /// color|1|Functional Color|1
 $--color-info: #909399 !default;
+$--base-span: 24;
 
 $--color-success-light: mix($--color-white, $--color-success, 80%) !default;
 $--color-warning-light: mix($--color-white, $--color-warning, 80%) !default;
@@ -190,3 +191,19 @@ $--button-border-radius: $--border-radius-base !default;
 $--button-padding-vertical: 12px !default;
 /// padding||Spacing|3
 $--button-padding-horizontal: 20px !default;
+
+/* Break-point
+--------------------------*/
+
+$--sm: 768px !default;
+$--md: 992px !default;
+$--lg: 1200px !default;
+$--xl: 1920px !default;
+
+$--break-points:(
+    'xs': (max-width: $--sm - 1),
+    'sm': (min-width: $--sm),
+    'md': (min-width: $--md),
+    'lg': (min-width: $--lg),
+    'xl': (min-width: $--xl),
+);

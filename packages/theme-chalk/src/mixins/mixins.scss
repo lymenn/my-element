@@ -19,7 +19,17 @@
 @mixin when($state){
     @at-root{
         &.#{$state-prefix+$state}{
-            @content
+            @content;
         }
     }
+}
+
+@mixin res($key, $map: $--break-points) {
+    @if map-has-key($map, $key) {
+        @media only  screen and #{map-get($map, $key)} {
+            @content;
+        }
+    } @else {
+        @warn "Undefeined points: `#{$map}`";
+    } 
 }

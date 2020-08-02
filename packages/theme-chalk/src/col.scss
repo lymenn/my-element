@@ -1,0 +1,38 @@
+@import './mixins/mixins.scss';
+
+[class*='el-col-']{
+    float: left;
+    box-sizing: border-box;
+}
+@for $i from 0 through 24 {
+    .el-col-#{$i}{
+        width: ( 1 / 24 * $i * 100 ) * 1%;
+    }
+    .el-col-offset-#{$i}{
+        margin-left:  ( 1 / 24 * $i * 100 ) * 1%;
+    }
+    .el-col-push-#{$i}{
+        position: relative;
+        left: ( 1 / 24 * $i * 100 ) * 1%;
+    }
+    .el-col-pull-#{$i}{
+        position: relative;
+        right: ( 1 / 24 * $i * 100 ) * 1%;
+    }
+}
+
+// @each $animal in puma, sea-slug, egret, salamander {
+//     .#{$animal}-icon {
+//       background-image: url('/images/#{$animal}.png');
+//     }
+//   }
+@each $size in xs, sm, md, lg, xl{
+    @include res($size){
+         @for $i from 0 through 24 {
+            .el-col-#{$size}-#{$i}{
+                width: ( 1 / 24 * $i * 100 ) * 1%;
+            }
+        }
+    }
+   
+}

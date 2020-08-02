@@ -1,101 +1,98 @@
 <template>
   <div>
-      <Button>主要按钮</Button>
-      <Button type="primary">主要按钮</Button>
-      <Button type="success">主要按钮</Button>
-      <Button type="info">主要按钮</Button>
-      <Button type="warning">主要按钮</Button>
-      <Button type="danger">主要按钮</Button>
+      <el-button>主要按钮</el-button>
+      <el-button type="primary">主要按钮</el-button>
+      <el-button type="success">主要按钮</el-button>
+      <el-button type="info">主要按钮</el-button>
+      <el-button type="warning">主要按钮</el-button>
+      <el-button type="danger">主要按钮</el-button>
       <br >
       <br >
-      <Button plain>朴素按钮</Button>
-      <Button type="primary" plain>主要按钮</Button>
-      <Button type="success" plain>主要按钮</Button>
-      <Button type="info" plain>主要按钮</Button>
-      <Button type="warning" plain>主要按钮</Button>
-      <Button type="danger" plain>主要按钮</Button>
+      <el-button plain>朴素按钮</el-button>
+      <el-button type="primary" plain>主要按钮</el-button>
+      <el-button type="success" plain>主要按钮</el-button>
+      <el-button type="info" plain>主要按钮</el-button>
+      <el-button type="warning" plain>主要按钮</el-button>
+      <el-button type="danger" plain>主要按钮</el-button>
        <br >
        <br >
-      <Button round>圆角按钮</Button>
-      <Button type="primary" round>主要按钮</Button>
-      <Button type="success" round>主要按钮</Button>
-      <Button type="info" round>主要按钮</Button>
-      <Button type="warning" round>主要按钮</Button>
-      <Button type="danger" round>主要按钮</Button>
+      <el-button round>圆角按钮</el-button>
+      <el-button type="primary" round>主要按钮</el-button>
+      <el-button type="success" round>主要按钮</el-button>
+      <el-button type="info" round>主要按钮</el-button>
+      <el-button type="warning" round>主要按钮</el-button>
+      <el-button type="danger" round>主要按钮</el-button>
        <br >
        <br >
-      <Button circle icon="el-icon-search"></Button>
-      <Button type="primary" circle icon="el-icon-edit"></Button>
-      <Button type="success" circle icon="el-icon-check"></Button>
-      <Button type="info" circle icon="el-icon-message"></Button>
-      <Button type="warning" circle icon="el-icon-star-off"></Button>
-      <Button type="danger" circle icon="el-icon-delete"></Button>
+      <el-button circle icon="el-icon-search"></el-button>
+      <el-button type="primary" circle icon="el-icon-edit"></el-button>
+      <el-button type="success" circle icon="el-icon-check"></el-button>
+      <el-button type="info" circle icon="el-icon-message"></el-button>
+      <el-button type="warning" circle icon="el-icon-star-off"></el-button>
+      <el-button type="danger" circle icon="el-icon-delete"></el-button>
       <br >
       <br >
-      <Button disabled>主要按钮</Button>
-      <Button type="primary" disabled>主要按钮</Button>
-      <Button type="success" disabled>主要按钮</Button>
-      <Button type="info" disabled>主要按钮</Button>
-      <Button type="warning" disabled>主要按钮</Button>
-      <Button type="danger" disabled>主要按钮</Button>
+      <el-button disabled>主要按钮</el-button>
+      <el-button type="primary" disabled>主要按钮</el-button>
+      <el-button type="success" disabled>主要按钮</el-button>
+      <el-button type="info" disabled>主要按钮</el-button>
+      <el-button type="warning" disabled>主要按钮</el-button>
+      <el-button type="danger" disabled>主要按钮</el-button>
       <br >
       <br >
-      <Button disabled>朴素按钮</Button>
-      <Button type="primary" plain disabled>主要按钮</Button>
-      <Button type="success" plain disabled>主要按钮</Button>
-      <Button type="info" plain disabled>主要按钮</Button>
-      <Button type="warning" plain disabled>主要按钮</Button>
-      <Button type="danger" plain disabled>主要按钮</Button>
+      <el-button disabled>朴素按钮</el-button>
+      <el-button type="primary" plain disabled>主要按钮</el-button>
+      <el-button type="success" plain disabled>主要按钮</el-button>
+      <el-button type="info" plain disabled>主要按钮</el-button>
+      <el-button type="warning" plain disabled>主要按钮</el-button>
+      <el-button type="danger" plain disabled>主要按钮</el-button>
 
       <br >
       <br >
-      <Button type="text">主要按钮</Button>
-      <Button type="text" disabled>主要按钮</Button>
+      <el-button type="text">主要按钮</el-button>
+      <el-button type="text" disabled>主要按钮</el-button>
 
       <br >
       <br >
-      <Button type="primary" icon="el-icon-edit"></Button>
-      <Button type="primary" icon="el-icon-share"></Button>
-      <Button type="primary" icon="el-icon-delete"></Button>
-      <Button type="primary" icon="el-icon-search">搜索</Button>
-      <Button type="primary">上传<i class="el-icon-upload el-icon--right"></i></Button>
+      <el-button type="primary" icon="el-icon-edit"></el-button>
+      <el-button type="primary" icon="el-icon-share"></el-button>
+      <el-button type="primary" icon="el-icon-delete"></el-button>
+      <el-button type="primary" icon="el-icon-search">搜索</el-button>
+      <el-button type="primary">上传<i class="el-icon-upload el-icon--right"></i></el-button>
 
       <br >
       <br >
-      <Button type="primary" :loading="true">加载中</Button>
+      <el-button type="primary" :loading="true">加载中</el-button>
 
       <br >
       <br >
-      <Button>主要按钮</Button>
-      <Button size="medium">中等按钮</Button>
-      <Button size="small">小型按钮</Button>
-      <Button size="mini">超小按钮</Button>
+      <el-button>主要按钮</el-button>
+      <el-button size="medium">中等按钮</el-button>
+      <el-button size="small">小型按钮</el-button>
+      <el-button size="mini">超小按钮</el-button>
 
       <br >
       <br >
-      <button-group>
-        <Button type="primary" icon="el-icon-arrow-left">上一页</Button>
-        <Button type="primary">下一页 <i class="el-icon-arrow-right"></i> </Button>
-      </button-group>
+      <el-button-group>
+        <el-button type="primary" icon="el-icon-arrow-left">上一页</el-button>
+        <el-button type="primary">下一页 <i class="el-icon-arrow-right"></i> </el-button>
+      </el-button-group>
 
-      <button-group>
-        <Button type="primary" icon="el-icon-edit"></Button>
-        <Button type="primary" icon="el-icon-share"></Button>
-        <Button type="primary" icon="el-icon-delete"></Button>
-        <Button type="danger" icon="el-icon-delete"></Button>
-        <Button type="warning" icon="el-icon-delete"></Button>
-        <Button type="primary" icon="el-icon-delete"></Button>
-        <Button type="success" icon="el-icon-delete"></Button>
-        <Button type="info" icon="el-icon-delete"></Button>
-      </button-group>
+      <el-button-group>
+        <el-button type="primary" icon="el-icon-edit"></el-button>
+        <el-button type="primary" icon="el-icon-share"></el-button>
+        <el-button type="primary" icon="el-icon-delete"></el-button>
+        <el-button type="danger" icon="el-icon-delete"></el-button>
+        <el-button type="warning" icon="el-icon-delete"></el-button>
+        <el-button type="primary" icon="el-icon-delete"></el-button>
+        <el-button type="success" icon="el-icon-delete"></el-button>
+        <el-button type="info" icon="el-icon-delete"></el-button>
+      </el-button-group>
   </div>
 </template>
 
 <script>
-import Button from '~/packages/button/src/button'
-import ButtonGroup from '~/packages/button/src/button-group'
 export default {
-  components: { Button, ButtonGroup }, // 子组件
 
   computed: { }, // 计算属性
 

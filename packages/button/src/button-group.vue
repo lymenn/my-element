@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'ElButtonGroup',
   components: {}, // 子组件
 
   computed: { }, // 计算属性
