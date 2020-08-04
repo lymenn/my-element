@@ -5,6 +5,11 @@ Vue.use(Router)
 export const constantRoutes = [
 
   {
+    path: '/link',
+    component: () => import('@/views/link')
+  },
+
+  {
     path: '/button',
     component: () => import('@/views/button')
   },

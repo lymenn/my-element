@@ -1,0 +1,82 @@
+@import './mixins/mixins.scss';
+@import "common/var";
+
+$typeMap: (
+  primary: $--link-primary-font-color, 
+  danger: $--link-danger-font-color, 
+  success: $--link-success-font-color, 
+  warning: $--link-warning-font-color, 
+  info: $--link-info-font-color);
+
+@include b(link){
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0px;
+    font-size: 14px;
+    font-weight: 500;
+    vertical-align: middle;
+    & [class*="el-icon-"]{
+       &+span{
+           margin-left: 5px;
+       }
+    }
+    @include when(disabled){
+        cursor: not-allowed;
+    }
+    @include when(underline){
+        &:hover::after{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            top: 0;
+            border-bottom: 1px solid $--link-default-active-color
+        }
+    }
+    @include m(default){
+        color: #000;
+        &:hover{
+            color:#409eff ;
+        }
+       
+        @include when(disabled){
+            color: #c0c4cc;
+            &::after{
+                display: none;
+            }
+        }
+        @include when(underline){
+            &:hover::after{
+                border-color: #409eff;
+            }
+        }
+    }
+    @each $type, $primaryColor in $typeMap {
+        &.el-link--#{$type}{
+            color: $primaryColor;
+            &:hover {
+              color: mix($primaryColor, $--color-white, 80%)
+            }
+            &:after {
+              border-color: $primaryColor
+            }
+            @include when(disabled) {
+              color: mix($primaryColor, $--color-white, 50%)
+            }
+            @include when(underline) {
+              &:hover:after {
+                border-color: $primaryColor
+              }
+            }
+        }
+    }
+   
+
+}
