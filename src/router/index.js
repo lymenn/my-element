@@ -5,8 +5,17 @@ Vue.use(Router)
 export const constantRoutes = [
 
   {
+    path: '/checkbox',
+    component: () => import('@/views/checkbox')
+  },
+
+  {
     path: '/link',
     component: () => import('@/views/link')
+  },
+  {
+    path: '/radio',
+    component: () => import('@/views/radio')
   },
 
   {

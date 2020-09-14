@@ -16,6 +16,17 @@
     }
     
 }
+
+@mixin e($element) {
+    $currentSelector:  #{&+$element-separator+$element};
+    @at-root{
+        #{$currentSelector}{
+            @content;
+        }
+    }
+    
+}
+
 @mixin when($state){
     @at-root{
         &.#{$state-prefix+$state}{

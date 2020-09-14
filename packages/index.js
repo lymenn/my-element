@@ -3,8 +3,16 @@ import ButtonGroup from './button-group/index.js'
 import Row from './row/index.js'
 import Col from './col/index.js'
 import Link from './link/index.js'
+import Radio from './radio/index.js'
+import RadioGroup from './radio-group/index.js'
+import RadioButton from './radio-button/index.js'
+import Checkbox from './checkbox/index.js'
 
 const components = [
+  Checkbox,
+  RadioButton,
+  RadioGroup,
+  Radio,
   Button,
   Link,
   Col,
