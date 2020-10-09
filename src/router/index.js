@@ -5,10 +5,13 @@ Vue.use(Router)
 export const constantRoutes = [
 
   {
+    path: '/cascader',
+    component: () => import('@/views/cascader')
+  },
+  {
     path: '/checkbox',
     component: () => import('@/views/checkbox')
   },
-
   {
     path: '/link',
     component: () => import('@/views/link')

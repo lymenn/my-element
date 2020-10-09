@@ -7,8 +7,10 @@ import Radio from './radio/index.js'
 import RadioGroup from './radio-group/index.js'
 import RadioButton from './radio-button/index.js'
 import Checkbox from './checkbox/index.js'
+import CascaderPanel from './cascader-panel/index.js'
 
 const components = [
+  CascaderPanel,
   Checkbox,
   RadioButton,
   RadioGroup,
