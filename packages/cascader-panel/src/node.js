@@ -3,14 +3,14 @@ export default class Node {
         this.data = data
         this.config = config
         this.parent = parentNode || null
-
+        this.level = !this.parent ? 1 : this.parent.level + 1
 
         this.initState()
         this.initChildren()
     }
     initState () {
 
-        cosnt { value: valueKey, label: labelKey } = this.config
+        const { value: valueKey, label: labelKey } = this.config
         this.value = this.data[valueKey]
         this.label = this.data[labelKey]
         this.pathNodes = this.calcalatePathNode()
@@ -23,6 +23,7 @@ export default class Node {
         const childrenKey = config.children
         const childrenData = this.data[childrenKey]
         this.hasChildren = Array.isArray(childrenData)
+        this.isLeaf = !this.hasChildren
         this.children = (childrenData || []).map(child => new Node(child, config, this))
 
     }
