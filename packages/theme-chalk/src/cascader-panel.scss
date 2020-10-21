@@ -48,7 +48,17 @@
         position: absolute;
         right: 10px;
     }
-
+    @include e(prefix) {
+        position: absolute;
+        left: 10px;
+    }
+    @include e(label) {
+        padding: 0 10px;
+    }
+    @include when(active){
+        color: #409eff;
+        font-weight: 700;
+    }
     &.in-active-path {
         color: #409eff;
         font-weight: 700;

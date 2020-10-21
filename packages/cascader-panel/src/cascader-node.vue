@@ -50,7 +50,15 @@ export default {
         renderExpandIcon() {
             return <i class="el-icon-arrow-right el-cascader-node__postfix"></i>
         },
-        renderPrefix() {},
+        renderCheckedIcon(){
+            return <i class="el-icon-check el-cascader-node__prefix"></i>
+        },
+        renderPrefix() {
+            const { node, isLeaf, isChecked } = this
+            if(isChecked){
+                return this.renderCheckedIcon()
+            }
+        },
         renderPostfix() {
             const { node, isLeaf } = this
             if (!isLeaf) {

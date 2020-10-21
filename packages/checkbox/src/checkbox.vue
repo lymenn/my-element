@@ -12,42 +12,42 @@
 
 <script>
 export default {
-  name: 'ElCheckbox',
-  components: {}, // 子组件
+    name: 'ElCheckbox',
+    components: {}, // 子组件
 
-  computed: {}, // 计算属性
+    computed: {}, // 计算属性
 
-  watch: {}, // 监听属性
+    watch: {}, // 监听属性
 
-  props: {},
+    props: {},
 
-  data () { return {} },
+    data () { return {} },
 
-  // 生命周期钩子
+    // 生命周期钩子
 
-  beforeCreate () {},
+    beforeCreate () {},
 
-  created () {},
+    created () {},
 
-  beforeMount () {},
+    beforeMount () {},
 
-  mounted () {},
+    mounted () {},
 
-  beforeUpdate () {},
+    beforeUpdate () {},
 
-  updated () {},
+    updated () {},
 
-  activated () {},
+    activated () {},
 
-  deactivated () {},
+    deactivated () {},
 
-  beforeDestroy () {},
+    beforeDestroy () {},
 
-  destroyed () {},
+    destroyed () {},
 
-  // 非响应式的属性 (不依赖响应系统的实例属性)
+    // 非响应式的属性 (不依赖响应系统的实例属性)
 
-  methods: {}
+    methods: {}
 
 }
 
