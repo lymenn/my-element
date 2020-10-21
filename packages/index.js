@@ -8,8 +8,10 @@ import RadioGroup from './radio-group/index.js'
 import RadioButton from './radio-button/index.js'
 import Checkbox from './checkbox/index.js'
 import CascaderPanel from './cascader-panel/index.js'
+import Scrollbar from './scrollbar/index.js'
 
 const components = [
+  Scrollbar,
   CascaderPanel,
   Checkbox,
   RadioButton,

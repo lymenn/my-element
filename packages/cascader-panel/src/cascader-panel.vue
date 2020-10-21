@@ -1,16 +1,23 @@
 <template>
-  <div class="el-cascader-panel">
+  <div :class="[
+    'el-cascader-panel',
+    border && 'is-bordered'
+  ]">
     <cascader-menu ref="menu" v-for="(menu,index) in menus" :key="index" :nodes="menu"></cascader-menu>
   </div>
 </template>
 <script>
 import merge from '@/utils/merge'
+import { isEqual } from '@/utils/util'
 import Store from './store'
 import CascaderMenu from './cascader-menu'
 const DefaultProps = {
     expandTrigger: 'click',
     children: 'children',
-    label: 'label'
+    value: 'value',
+    label: 'label',
+    emitPath: true,
+    checkedStrictly: false
 }
 export default {
     name: 'ElCascaderPanel',
@@ -25,12 +32,17 @@ export default {
     props: {
         options: {
             type: Array
+        },
+        border: {
+            type: Boolean,
+            default: true
         }
     },
     data() {
         return {
             menus: [],
-            activePath: []
+            activePath: [],
+            checkedValue: null
         }
     },
     watch: {
@@ -39,6 +51,12 @@ export default {
                 this.initStore()
             },
             immediate: true
+        },
+        checkedValue(val) {
+            if (!isEqual(val, this.value)) {
+                this.$emit('input', val)
+                this.$emit('change', val)
+            }
         }
     },
     computed: {
@@ -53,6 +71,9 @@ export default {
             this.store = new Store(options, config)
             this.menus = [this.store.getNodes()]
         },
+        handleCheckChange(value) {
+            this.checkedValue = value
+        },
         handleExpand(node) {
             const { activePath, menus } = this
             const { level } = node
@@ -65,8 +86,6 @@ export default {
 
             this.activePath = path
             this.menus = menu
-            console.log(menu, 'menu')
-            console.log(path, 'path')
         }
     }
 }

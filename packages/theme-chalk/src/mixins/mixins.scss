@@ -2,45 +2,52 @@
 
 @mixin b($block) {
     $B: $namespace+'-'+$block;
-    .#{$B}{
+
+    .#{$B} {
         @content;
     }
 }
 
 @mixin m($modifier) {
-    $currentSelector:  #{&+$modifier-separator+$modifier};
-    @at-root{
-        #{$currentSelector}{
+    $currentSelector: #{&+$modifier-separator+$modifier};
+
+    @at-root {
+        #{$currentSelector} {
             @content;
         }
     }
-    
+
 }
 
 @mixin e($element) {
-    $currentSelector:  #{&+$element-separator+$element};
-    @at-root{
-        #{$currentSelector}{
+    $currentSelector: #{&+$element-separator+$element};
+
+    @at-root {
+        #{$currentSelector} {
             @content;
         }
     }
-    
+
 }
 
-@mixin when($state){
-    @at-root{
-        &.#{$state-prefix+$state}{
+@mixin when($state) {
+    @at-root {
+        &.#{$state-prefix+$state} {
             @content;
         }
     }
 }
 
-@mixin res($key, $map: $--break-points) {
+@mixin res($key, $map: $--breakpoints) {
+
+    // 循环断点Map，如果存在则返回
     @if map-has-key($map, $key) {
-        @media only  screen and #{map-get($map, $key)} {
+        @media only screen and #{inspect(map-get($map, $key))} {
             @content;
         }
-    } @else {
+    }
+
+    @else {
         @warn "Undefeined points: `#{$map}`";
-    } 
+    }
 }

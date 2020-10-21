@@ -1,9 +1,11 @@
 <script>
 import CascaderNode from './cascader-node'
+import Scrollbar from '~/packages/scrollbar'
 export default {
     name: 'ElCascaderMenu',
     components: {
-        CascaderNode
+        CascaderNode,
+        Scrollbar
     },
     props: {
         nodes: Array
@@ -27,7 +29,16 @@ export default {
 
     render() {
         const { isEmpty } = this
-        return <ul>{isEmpty ? this.renderEmptyText() : this.renderNodeList()}</ul>
+        return (
+            <scrollbar
+                tag="ul"
+                class="el-cascader-menu"
+                wrap-class="el-cascader-menu__wrap"
+                view-class="el-cascader-menu__list"
+            >
+                {isEmpty ? this.renderEmptyText() : this.renderNodeList()}
+            </scrollbar>
+        )
     }
 }
 </script>
