@@ -16,7 +16,7 @@ export default {
         }
     },
     methods: {
-        renderEmptyText(h) {
+        renderEmptyText() {
             return <div class="el-cascader-menu__empty-text">无数据</div>
         },
         renderNodeList() {

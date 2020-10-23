@@ -39,31 +39,45 @@ export default {
             return selectedNode.uid === node.uid
         },
         handleExpand() {
-            const { node } = this
-            this.panel.handleExpand(node)
+            const { node, config, panel } = this
+            if (node.loading) return
+            if (config.lazy && !node.loaded) {
+                panel.lazyLoad(node, () => {
+                    const { isLeaf } = this
+                    if (!isLeaf) this.handleExpand()
+                })
+            } else {
+                this.panel.handleExpand(node)
+            }
         },
         renderContent() {
             const { node } = this
-
             return <span class="el-cascader-node__label">{node.label}</span>
         },
         renderExpandIcon() {
             return <i class="el-icon-arrow-right el-cascader-node__postfix"></i>
         },
-        renderCheckedIcon(){
+        renderCheckedIcon() {
             return <i class="el-icon-check el-cascader-node__prefix"></i>
+        },
+        renderLoadingIcon() {
+            return <i class="el-icon-loading el-cascader-node__postfix"></i>
         },
         renderPrefix() {
             const { node, isLeaf, isChecked } = this
-            if(isChecked){
+            if (isChecked) {
                 return this.renderCheckedIcon()
             }
         },
         renderPostfix() {
             const { node, isLeaf } = this
-            if (!isLeaf) {
+
+            if (node.loading) {
+                return this.renderLoadingIcon()
+            } else if (!isLeaf) {
                 return this.renderExpandIcon()
             }
+            return null
         }
     },
     render(h) {

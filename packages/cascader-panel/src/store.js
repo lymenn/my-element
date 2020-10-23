@@ -13,4 +13,13 @@ export default class Store {
     getNodes () {
         return this.nodes
     }
+    appendNodes (nodes, parentNode) {
+        const nodeList = cocerceTruthyValueToArray(nodes)
+        nodeList.forEach(nodeData => this.appendNode(nodeData, parentNode))
+    }
+    appendNode (nodeData, parentNode) {
+        const node = new Node(nodeData, this.config, parentNode)
+        const children = parentNode ? parentNode.children : this.nodes
+        children.push(node)
+    }
 }

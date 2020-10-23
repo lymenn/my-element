@@ -8,7 +8,7 @@
 </template>
 <script>
 import merge from '@/utils/merge'
-import { isEqual } from '@/utils/util'
+import { isEqual, isEmpty } from '@/utils/util'
 import Store from './store'
 import CascaderMenu from './cascader-menu'
 const DefaultProps = {
@@ -36,7 +36,8 @@ export default {
         border: {
             type: Boolean,
             default: true
-        }
+        },
+        props: Object
     },
     data() {
         return {
@@ -68,8 +69,30 @@ export default {
         initStore() {
             const { options, config } = this
 
-            this.store = new Store(options, config)
-            this.menus = [this.store.getNodes()]
+            if (config.lazy && isEmpty(options)) {
+                this.lazyLoad()
+            } else {
+                this.store = new Store(options, config)
+                this.menus = [this.store.getNodes()]
+            }
+        },
+        lazyLoad(node, onFullfiled) {
+            const { config } = this
+            if (!node) {
+                node = node || { root: true, level: 0 }
+                this.store = new Store([], config)
+                this.menus = [this.store.getNodes()]
+            }
+            node.loading = true
+            const resolve = dataList => {
+                const parent = node.root ? null : node
+                dataList && dataList.length && this.store.appendNodes(dataList, parent)
+                node.loading = false
+                node.loaded = true
+
+                onFullfiled && onFullfiled(dataList)
+            }
+            config.lazyLoad && config.lazyLoad(node, resolve)
         },
         handleCheckChange(value) {
             this.checkedValue = value
