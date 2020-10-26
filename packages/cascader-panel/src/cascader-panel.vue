@@ -31,6 +31,7 @@ export default {
         CascaderMenu
     },
     props: {
+        value:{},
         options: {
             type: Array
         },
@@ -55,6 +56,7 @@ export default {
             immediate: true
         },
         checkedValue(val) {
+            console.log(this.value,66);
             if (!isEqual(val, this.value)) {
                 this.$emit('input', val)
                 this.$emit('change', val)
@@ -102,9 +104,9 @@ export default {
             const { activePath, menus } = this
 
             const { level } = node
-            let path = activePath.splice(0, level - 1)
+            let path = activePath.slice(0, level - 1)
 
-            let menu = menus.splice(0, level)
+            let menu = menus.slice(0, level)
             if (!node.isLeaf) {
                 path.push(node)
                 menu.push(node.children)
@@ -115,7 +117,6 @@ export default {
             if (!silent) {
                 const pathValues = path.map(node => node.getValue())
                 const activePathValues = activePath.map(node => node.getValue())
-                console.log(activePath, '--')
 
                 if (!isEqual(pathValues, activePathValues)) {
                     this.$emit('expand-change', pathValues)

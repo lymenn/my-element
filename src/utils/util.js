@@ -67,17 +67,17 @@ export function isEmpty (val) {
     if (typeof val === 'number') return !val
     if (val instanceof Error) return val.message === ''
     switch (Object.prototype.toString.call(val)) {
-        //String or Array
-        case '[object String]':
-        case '[object Array]':
-            return !val.length
+    //String or Array
+    case '[object String]':
+    case '[object Array]':
+        return !val.length
         // map set file
-        case '[object Map]':
-        case '[object Set]':
-        case '[object File]':
-            return !val.size
-        case '[object Object]':
-            return !Object.keys(val).length
+    case '[object Map]':
+    case '[object Set]':
+    case '[object File]':
+        return !val.size
+    case '[object Object]':
+        return !Object.keys(val).length
     }
 
     return false

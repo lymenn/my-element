@@ -86,6 +86,8 @@ export default {
         const events = { on: {} }
         if (expandTrigger === 'click') {
             events.on.click = this.handleExpand
+        } else{
+            events.on.mouseenter = this.handleExpand
         }
         if (isLeaf) {
             events.on.click = this.handleCheckChange

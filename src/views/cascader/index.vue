@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-cascader-panel :props="props" @change="handleChange" @expand-change="handleExpandChange"></el-cascader-panel>
+    <el-cascader-panel ref="panel"  v-model="test" :props="props" @change="handleChange" @expand-change="handleExpandChange"></el-cascader-panel>
   </div>
 </template>
 <script>
@@ -9,7 +9,7 @@ let id = 0
 export default {
     methods: {
         handleChange(val) {
-            console.log('changed', val)
+            console.log('changed', this.test)
         },
         handleExpandChange(val) {
             console.log('expanded', val)
@@ -17,8 +17,10 @@ export default {
     },
     data() {
         return {
+            test: 'hh',
             props: {
                 lazy: true,
+                expandTrigger: 'hover',
                 lazyLoad(node, resolve) {
                     const { level } = node
                     setTimeout(() => {
