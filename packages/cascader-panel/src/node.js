@@ -18,6 +18,7 @@ export default class Node {
     initState () {
         const { value: valueKey, label: labelKey } = this.config
         this.value = this.data[valueKey]
+
         this.label = this.data[labelKey]
         this.pathNodes = this.calcalatePathNode()
         this.path = this.pathNodes.map(node => node.value)
@@ -39,10 +40,12 @@ export default class Node {
     get isLeaf () {
         const { hasChildren, children, loaded, data } = this
         const { lazy, leaf: leafKey } = this.config
+
         if (lazy) {
-            const isLeaf = isDef[data[leafKey]] ?
+            const isLeaf = isDef(data[leafKey]) ?
                 data[leafKey] : (loaded ? !children.length : false)
             this.hasChildren = !isLeaf
+
             return isLeaf
         }
 
