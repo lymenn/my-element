@@ -1,12 +1,20 @@
 <template>
   <div>
-    <el-cascader-panel :props="props"></el-cascader-panel>
+    <el-cascader-panel :props="props" @change="handleChange" @expand-change="handleExpandChange"></el-cascader-panel>
   </div>
 </template>
 <script>
 let id = 0
 
 export default {
+    methods: {
+        handleChange(val) {
+            console.log('changed', val)
+        },
+        handleExpandChange(val) {
+            console.log('expanded', val)
+        }
+    },
     data() {
         return {
             props: {

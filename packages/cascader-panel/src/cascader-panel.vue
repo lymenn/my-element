@@ -16,6 +16,7 @@ const DefaultProps = {
     children: 'children',
     value: 'value',
     label: 'label',
+    leaf: 'leaf',
     emitPath: true,
     checkedStrictly: false
 }
@@ -97,18 +98,29 @@ export default {
         handleCheckChange(value) {
             this.checkedValue = value
         },
-        handleExpand(node) {
+        handleExpand(node, silent) {
             const { activePath, menus } = this
+
             const { level } = node
             let path = activePath.splice(0, level - 1)
+
             let menu = menus.splice(0, level)
             if (!node.isLeaf) {
                 path.push(node)
                 menu.push(node.children)
             }
-
             this.activePath = path
             this.menus = menu
+
+            if (!silent) {
+                const pathValues = path.map(node => node.getValue())
+                const activePathValues = activePath.map(node => node.getValue())
+                console.log(activePath, '--')
+
+                if (!isEqual(pathValues, activePathValues)) {
+                    this.$emit('expand-change', pathValues)
+                }
+            }
         }
     }
 }
