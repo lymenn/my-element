@@ -1,6 +1,12 @@
 <template>
   <div>
-    <el-cascader-panel ref="panel"  v-model="test" :props="props" @change="handleChange" @expand-change="handleExpandChange"></el-cascader-panel>
+    <el-cascader-panel
+      ref="panel"
+      v-model="test"
+      :props="props"
+      @change="handleChange"
+      @expand-change="handleExpandChange"
+    ></el-cascader-panel>
   </div>
 </template>
 <script>
@@ -20,7 +26,8 @@ export default {
             test: 'hh',
             props: {
                 lazy: true,
-                expandTrigger: 'hover',
+                // multiple: true,
+                checkStrictly: true,
                 lazyLoad(node, resolve) {
                     const { level } = node
                     setTimeout(() => {

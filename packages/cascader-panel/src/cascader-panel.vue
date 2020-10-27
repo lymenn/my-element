@@ -31,7 +31,7 @@ export default {
         CascaderMenu
     },
     props: {
-        value:{},
+        value: {},
         options: {
             type: Array
         },
@@ -56,7 +56,6 @@ export default {
             immediate: true
         },
         checkedValue(val) {
-            console.log(this.value,66);
             if (!isEqual(val, this.value)) {
                 this.$emit('input', val)
                 this.$emit('change', val)

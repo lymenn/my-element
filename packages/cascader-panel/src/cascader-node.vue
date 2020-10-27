@@ -1,4 +1,6 @@
 <script>
+const stopPropagation = e => e.stopPropagation()
+import checkboxVue from '../../checkbox/src/checkbox.vue'
 export default {
     name: 'ElCascaderNode',
     inject: ['panel'],
@@ -40,6 +42,7 @@ export default {
         },
         handleExpand() {
             const { node, config, panel } = this
+
             if (node.loading) return
             if (config.lazy && !node.loaded) {
                 panel.lazyLoad(node, () => {
@@ -63,9 +66,31 @@ export default {
         renderLoadingIcon() {
             return <i class="el-icon-loading el-cascader-node__postfix"></i>
         },
+        renderCheckbox() {
+            return <el-checkbox></el-checkbox>
+        },
+        renderRadio() {
+            const { checkedValue, value, isDisabled } = this
+            return (
+                <el-radio
+                    value={checkedValue}
+                    label={value}
+                    disabeld={isDisabled}
+                    onChange={this.handleCheckChange}
+                    navtiveOnClick={stopPropagation}
+                >
+                    <span></span>
+                </el-radio>
+            )
+        },
         renderPrefix() {
-            const { node, isLeaf, isChecked } = this
-            if (isChecked) {
+            const { isLeaf, isChecked, config } = this
+            const { multiple, checkStrictly } = config
+            if (multiple) {
+                return this.renderCheckbox()
+            } else if (checkStrictly) {
+                return this.renderRadio()
+            } else if (isLeaf && isChecked) {
                 return this.renderCheckedIcon()
             }
         },
@@ -86,7 +111,7 @@ export default {
         const events = { on: {} }
         if (expandTrigger === 'click') {
             events.on.click = this.handleExpand
-        } else{
+        } else {
             events.on.mouseenter = this.handleExpand
         }
         if (isLeaf) {

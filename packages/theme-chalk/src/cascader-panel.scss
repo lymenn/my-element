@@ -75,4 +75,12 @@
         color: #409eff;
         font-weight: 700;
     }
+
+    >.el-radio {
+        margin-right: 0;
+
+        .el-radio__label {
+            padding-left: 0
+        }
+    }
 }

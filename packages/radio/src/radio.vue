@@ -30,7 +30,10 @@
         @change="handleChange"
       />
     </span>
-    <span class="el-radio__label">备选项</span>
+    <span class="el-radio__label">
+      <slot></slot>
+      <template v-if="!$slots.default">{{label}}</template>
+    </span>
   </label>
 </template>
 
@@ -73,11 +76,11 @@ export default {
     watch: {}, // 监听属性
 
     props: {
-        label: [String, Number, Boolean],
+        label: {},
         disabled: Boolean,
         border: Boolean,
         size: String,
-        value: [String, Number, Boolean]
+        value: {}
     },
 
     data() {
