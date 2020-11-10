@@ -9,27 +9,31 @@ import RadioButton from './radio-button/index.js'
 import Checkbox from './checkbox/index.js'
 import CascaderPanel from './cascader-panel/index.js'
 import Scrollbar from './scrollbar/index.js'
+import Cascader from './cascader/index.js'
+import Input from './input/index.js'
 
 const components = [
-  Scrollbar,
-  CascaderPanel,
-  Checkbox,
-  RadioButton,
-  RadioGroup,
-  Radio,
-  Button,
-  Link,
-  Col,
-  ButtonGroup,
-  Row
+    Input,
+    Cascader,
+    Scrollbar,
+    CascaderPanel,
+    Checkbox,
+    RadioButton,
+    RadioGroup,
+    Radio,
+    Button,
+    Link,
+    Col,
+    ButtonGroup,
+    Row
 ]
 
 const install = function (Vue, opt = {}) {
-  components.forEach(component => {
-    Vue.component(component.name, component)
-  })
+    components.forEach(component => {
+        Vue.component(component.name, component)
+    })
 }
 
 export default {
-  install
+    install
 }
