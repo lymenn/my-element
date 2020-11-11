@@ -1,5 +1,5 @@
 <template>
-  <div @click="toggleDropDownVisible" ref="reference" :class="[ 'el-cascader']">
+  <div ref="reference" @click="toggleDropDownVisible" :class="[ 'el-cascader']">
     <el-input v-model="inputValue">
       <template slot="suffix">
         <i :class="[
@@ -8,7 +8,7 @@
         ]"></i>
       </template>
     </el-input>
-    <div :class="['el-popper', 'el-cascader__dropdown']" v-show="dropDownVisible">
+    <div ref="popper" :class="['el-popper', 'el-cascader__dropdown']" v-show="dropDownVisible">
       <el-cascader-panel v-model="checkedValue" :options="options"></el-cascader-panel>
     </div>
   </div>
